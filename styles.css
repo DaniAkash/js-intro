@@ -1,0 +1,35 @@
+h1.primary-header {
+    color: red;
+    font-size: 24px;
+}
+
+.secondary-header {
+    color: brown;
+    font-size: 10px;
+}
+
+a {
+    color: chartreuse;
+    text-decoration: none;
+}
+
+a:visited {
+    color: silver;
+}
+
+a:hover {
+    color: purple;
+    text-decoration: underline;
+}
+
+.box {
+    height: 150px;
+    width: 150px;
+    background-color: red;
+    padding: 25px 50px 75px 100px;
+    margin: 25px 100px;
+    border: 10px solid green;
+    /* border-width: 0ch;
+    border-style: solid;
+    border-color: green; */
+}
