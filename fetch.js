@@ -11,6 +11,20 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
         console.log(e);
     });
 
+const networkRequest = async () => {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        try {
+            const data = await response.json();
+            console.log(data);
+        } catch(e) {
+            console.log(e);
+        }
+    } catch (e) {
+        console.log(e);
+    }
+};
+
 /**
  * Callbacks
  */
@@ -19,6 +33,19 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 
 //     })
 // });
+
+/**
+ * Handling async operations with callback
+ */
+const timeOutCallback = (delayedFunction,) => {
+    setTimeout(() => {
+        delayedFunction();
+    }, 200);
+};
+
+timeOutCallback(() => {
+    console.log('execute after some timeout');
+});
 
 /**
  * Return an Array after timeout
