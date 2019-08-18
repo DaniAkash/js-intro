@@ -31,3 +31,5 @@ var human = function (name, age, gender) {
 };
 
 var sam = human("sam", 23, "male");
+
+sam.walk();
