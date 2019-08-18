@@ -37,3 +37,17 @@ const {
     dob, 
     address = "chennai"
 } = person;
+
+const person = {
+    name: "Sid",
+    age: 24,
+    gender: "male",
+    dob: null,
+};
+
+for (let key in person) {
+    if(person.hasOwnProperty(key)) {
+        console.log(key);
+        console.log(person[key]);
+    }
+}

@@ -1,3 +1,9 @@
+/**
+ * Selecting an individual selected radio input
+ * 
+ * document.querySelector("input[name=\"gender\"]:checked")
+ */
+
 class RegistrationForm {
     constructor() {
         this.$name = document.querySelector("#name");
@@ -14,7 +20,7 @@ class RegistrationForm {
     startEventListeners() {
         this.$form.addEventListener('submit', event => {
             event.preventDefault();
-            this.validateForm();
+            this.submitForm();
         });
     };
 
@@ -26,6 +32,40 @@ class RegistrationForm {
             this.$name.classList.remove('is-invalid');
         }
     };
+
+    getFormValues () {
+        return {
+            name: this.$name.value,
+            email: this.$email.value,
+            password: this.$password.value,
+            dob: this.$dob.value,
+            gender: document.querySelector("input[name=\"gender\"]:checked").value
+        }
+    }
+
+    submitForm () {
+        const formFields = this.getFormValues();
+
+        const url = "https://mytestendpoint.free.beeceptor.com/api/data"
+        const config = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            mode: 'cors',
+            body: JSON.stringify(formFields)
+        };
+
+        fetch(url, config)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
 }
 
+// class initialized
 new RegistrationForm();
